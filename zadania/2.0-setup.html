@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 2.0: Struktura i Deployment (GitHub Pages)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; line-height: 1.6; color: #333; }
+        h1 { color: #0056b3; }
+        h2 { color: #d9534f; border-bottom: 2px solid #d9534f; padding-bottom: 5px; margin-top: 40px;}
+        .info { background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-bottom: 20px; border-left: 5px solid #0056b3;}
+        .step { background-color: #f9f9f9; border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
+        .step-number { display: inline-block; background-color: #0056b3; color: white; width: 30px; height: 30px; text-align: center; line-height: 30px; border-radius: 50%; font-weight: bold; margin-right: 10px; }
+        
+        /* POPRAWIONE STYLE DLA KODU - dodano white-space: pre-wrap */
+        .code-block { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; font-family: monospace; font-size: 1.1em; margin-bottom: 20px; white-space: pre-wrap; word-wrap: break-word; overflow-x: auto; }
+        .terminal { background-color: #1e1e1e; color: #00ff00; padding: 15px; border-radius: 5px; font-family: monospace; margin-top: 10px; margin-bottom: 10px; white-space: pre-wrap; word-wrap: break-word; overflow-x: auto; }
+        .file-tree { font-family: monospace; background-color: #e3f2fd; padding: 15px; border-left: 5px solid #2196f3; border-radius: 5px; white-space: pre-wrap; }
+        
+        .diagram-container { text-align: center; margin: 20px 0; padding: 10px; border: 1px dashed #aaa; background-color: #fff; }
+        code { background-color: #ddd; padding: 2px 5px; border-radius: 3px; font-weight: bold; color: #333;}
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; }
+        .tag { color: #ff79c6; }
+    </style>
+</head>
+<body>
+
+    <h1>Moduł 2, Zadanie 2.0: Setup repozytorium i Deployment</h1>
+    
+    <div class="info">
+        <p><strong>Witamy w Module 2!</strong> Tym razem będziemy łączyć się z prawdziwymi serwerami (API) w internecie, aby pobierać dane. Aby nasza aplikacja była w pełni profesjonalna, będziemy pracować na sklonowanym repozytorium <code>kurs-react</code>. Nauczymy się też, jak sprawić, by kod z naszego komputera automatycznie stawał się stroną widoczną dla całego świata pod Twoim własnym linkiem na GitHub Pages!</p>
+    </div>
+
+    <h2>1. Prawidłowa struktura projektu</h2>
+    <p>Otwórz folder swojego repozytorium <code>kurs-react</code> w edytorze Visual Studio Code. Profesjonalne projekty nie trzymają wszystkich plików "luzem" w jednym miejscu. Zbudujmy porządek!</p>
+    
+    <div class="diagram-container">
+        <p><em>Schemat: Tak powinna wyglądać standardowa struktura plików statycznych (HTML, CSS, JS).</em></p>
+        
+    </div>
+
+    <p>Stwórz w swoim repozytorium następujące foldery i pliki:</p>
+    <div class="file-tree">📁 kurs-react/ (Główny folder repozytorium)
+├── 📄 index.html      &lt;-- Główny plik Twojej strony
+├── 📁 css/
+│   └── 📄 style.css   &lt;-- Tutaj będą style
+└── 📁 js/
+    └── 📄 app.js      &lt;-- Tutaj będziemy pisać nasz kod JS</div>
+
+    <h2>2. Startowy plik index.html</h2>
+    <p>Wklej poniższy kod do swojego nowo utworzonego pliku <code>index.html</code>. To szkielet, na którym będziemy budować aplikacje w tym module.</p>
+
+    <div class="code-block"><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="string">lang="pl"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="string">charset="UTF-8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="string">name="viewport"</span> <span class="string">content="width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>Moduł 2: Moja Aplikacja API<span class="tag">&lt;/title&gt;</span>
+    
+    <span class="comment">&lt;!-- Podpięcie zewnętrznego pliku CSS z folderu css --&gt;</span>
+    <span class="tag">&lt;link</span> <span class="string">rel="stylesheet"</span> <span class="string">href="./css/style.css"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+    <span class="tag">&lt;header&gt;</span>
+        <span class="tag">&lt;h1&gt;</span>Moduł 2: Interakcja z serwerem<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;/header&gt;</span>
+
+    <span class="tag">&lt;main</span> <span class="string">id="kontener-aplikacji"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h2&gt;</span>Miejsce na projekt...<span class="tag">&lt;/h2&gt;</span>
+        <span class="tag">&lt;p&gt;</span>Niedługo pojawią się tu dane pobrane z prawdziwego serwera!<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/main&gt;</span>
+
+    <span class="comment">&lt;!-- Podpięcie skryptu JS z folderu js jako MODUŁ --&gt;</span>
+    <span class="tag">&lt;script</span> <span class="string">type="module"</span> <span class="string">src="./js/app.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></div>
+
+    <h2>3. Zapisz i wyślij na serwer (Push)</h2>
+    <p>Teraz użyjemy magii Gita, aby zapisać te pliki i wysłać je do repozytorium w chmurze.</p>
+    <div class="code-block"><span class="comment"># 1. Dodaj wszystkie nowe pliki do "poczekalni"</span>
+git add .
+
+<span class="comment"># 2. Stwórz "zapis gry" (commit) z opisem</span>
+git commit -m "Inicjalizacja struktury projektu dla Modulu 2"
+
+<span class="comment"># 3. Wyślij pliki do GitHuba (używając skonfigurowanego wcześniej SSH)</span>
+git push origin main</div>
+
+    <h2>4. Publikacja w internecie (GitHub Pages Deployment)</h2>
+    <p>Nasz kod jest już w chmurze, ale teraz powiemy GitHubowi: <em>"Hej, potraktuj mój plik index.html jako prawdziwą stronę i udostępnij ją światu!"</em></p>
+    
+    <div class="diagram-container">
+        <p><em>Schemat: Gdzie w GitHubie kliknąć, aby włączyć Pages.</em></p>
+        
+    </div>
+
+    <div class="step">
+        <h3><span class="step-number">1</span> Wejdź w ustawienia Repozytorium</h3>
+        <p>Na stronie swojego repozytorium na GitHubie (tam, gdzie widzisz swoje pliki), kliknij zakładkę <strong>Settings</strong> (ikonka zębatki) na górnym pasku.</p>
+    </div>
+
+    <div class="step">
+        <h3><span class="step-number">2</span> Zakładka Pages</h3>
+        <p>Zjedź nieco niżej po lewym menu i kliknij opcję <strong>Pages</strong>.</p>
+    </div>
+
+    <div class="step">
+        <h3><span class="step-number">3</span> Wybierz źródło (Source)</h3>
+        <p>W sekcji "Build and deployment", pod napisem <strong>Branch</strong> (Gałąź), zobaczysz przycisk z napisem <em>None</em>. Kliknij go i zmień na <strong>main</strong>.</p>
+        <p>Obok pojawi się folder (zazwyczaj <em>/ (root)</em>). Zostaw to bez zmian i kliknij <strong>Save</strong> (Zapisz).</p>
+    </div>
+
+    <div class="info">
+        <p><strong>I to wszystko! Co się teraz stanie?</strong><br>
+        Po kliknięciu "Save", GitHub potrzebuje około 1-2 minut na zbudowanie Twojej strony. Kiedy skończy, na samej górze zakładki <em>Pages</em> pojawi się powiadomienie z linkiem w stylu: <br>
+        <code>https://twoja-nazwa.github.io/kurs-react/</code>.</p>
+        <p>Najlepsze jest to, że <strong>ten proces ustawiłeś tylko raz!</strong> Od teraz za każdym razem, gdy użyjesz komendy <code>git push</code> na swoim komputerze, GitHub automatycznie i bez Twojego udziału zaktualizuje tę stronę w internecie.</p>
+    </div>
+
+</body>
+</html>
