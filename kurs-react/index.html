@@ -3,24 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moduł 2: Moja Aplikacja API</title>
+    <title>Shoutbox Mono Light</title>
     
-    <!-- Podpięcie zewnętrznego pliku CSS z folderu css -->
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/1041/1041916.png">
+
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Moduł 2: Interakcja z serwerem</h1>
-    </header>
+    <main class="container">
+        <section id="sekcja-logowania" class="panel">
+            <h1>SHOUTBOX_</h1>
+            <div class="login-form">
+                <input type="text" id="input-nick" placeholder="WPISZ NICK...">
+                <button id="btn-wejdz">DOŁĄCZ</button>
+            </div>
+        </section>
 
-    <main id="kontener-aplikacji">
-        <h2>Miejsce na projekt...</h2>
-        <p>Niedługo pojawią się tu dane pobrane z prawdziwego serwera!</p>
+        <section id="sekcja-czatu" class="panel hidden">
+            <header class="chat-header">
+                <h2 id="powitanie">UŻYTKOWNIK_</h2>
+                <button id="btn-wyloguj">WYJDŹ</button>
+            </header>
+            
+            <div id="okno-wiadomosci"></div>
+
+            <form id="formularz-wiadomosci" class="chat-controls">
+                <input type="text" id="input-wiadomosc" placeholder="WIADOMOŚĆ..." autocomplete="off">
+                <button type="submit" id="btn-wyslij">WYŚLIJ</button>
+            </form>
+        </section>
     </main>
 
-    <!-- Podpięcie skryptu JS z folderu js jako MODUŁ -->
-    <script type="module" src="./js/app.js"></script>
+    <script src="./js/app.js"></script>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('✅ Service Worker zarejestrowany!'))
+                    .catch(err => console.log('❌ Błąd rejestracji SW:', err));
+            });
+        }
+    </script>
 </body>
 </html>
